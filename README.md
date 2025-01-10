@@ -30,7 +30,7 @@ The Vigenère Cipher is a method of encrypting alphabetic text using a simple fo
 ## Usage
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Shubhamaswal09/Vigen-re-Cipher/
    ```
 2. Open `index.html` in a web browser.
 3. Enter the text, keyword, and choose encrypt or decrypt.
