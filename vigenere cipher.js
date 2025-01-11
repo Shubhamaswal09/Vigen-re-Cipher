@@ -1,7 +1,10 @@
-document.getElementById('processButton').addEventListener('click', function () {
+const processButton = document.getElementById('processButton');
+
+processButton.addEventListener('click', () => {
     const text = document.getElementById('text').value;
     const key = document.getElementById('key').value;
     const mode = document.getElementById('mode').value;
+
 
     if (!key || !text) {
         alert("Both text and keyword are required!");
@@ -19,21 +22,20 @@ function vigenereCipher(text, key, mode = 'encrypt') {
     text = text.toUpperCase();
 
     for (let i = 0; i < text.length; i++) {
-        let char = text[i];
-        if (char >= 'A' && char <= 'Z') {
+        if (text[i] >= 'A' && text[i] <= 'Z') {
             let shift = key[keyIndex % key.length].charCodeAt(0) - 'A'.charCodeAt(0);
             let newCharCode;
 
             if (mode === 'encrypt') {
-                newCharCode = (char.charCodeAt(0) - 'A'.charCodeAt(0) + shift) % 26 + 'A'.charCodeAt(0);
+                newCharCode = (text[i].charCodeAt(0) - 'A'.charCodeAt(0) + shift) % 26 + 'A'.charCodeAt(0);
             } else {
-                newCharCode = (char.charCodeAt(0) - 'A'.charCodeAt(0) - shift + 26) % 26 + 'A'.charCodeAt(0);
+                newCharCode = (text[i].charCodeAt(0) - 'A'.charCodeAt(0) - shift + 26) % 26 + 'A'.charCodeAt(0);
             }
 
-            result += String.fromCharCode(newCharCode);
+            result =result + String.fromCharCode(newCharCode);
             keyIndex++;
         } else {
-            result += char;  
+            result += text[i];  
         }
     }
 
